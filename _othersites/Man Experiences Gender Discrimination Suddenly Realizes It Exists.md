@@ -1,0 +1,11 @@
+# Man Experiences Gender Discrimination, Suddenly Realizes It Exists #
+
+I've seen this [interesting Tumblr post](http://whatwouldkingleonidasdo.tumblr.com/post/54989171152/how-i-discovered-gender-discrimination "How I Discovered Gender Discrimination") floating around the Internet lately. The short version is this: a man named Kim applies for jobs, gets a lot of rejections, and tacks 'Mr.' before him name on his resume and suddenly get interviews:
+
+> My choice to brand the CV with a bold positioning of my name actually seemed to scream that I was a woman. I could easily imagine many of the people I had worked for discarding the document without even reading further. If they did read further the next thing they saw (as politeness declared at the time) was a little personal information, and that declared I was married with kids. I had put this in because I knew many employers would see it as showing stability, but when I viewed it through the skewed view of middle aged men who thought I was a woman, I could see it was just further damning my cause. I doubt if many of the managers I had known would have made it to the second page.
+
+I think the most surprising thing is how often men act like there is no gender discrimination in hiring or promotions, or even that women are hired or promoted *more* often. The bigger thing, though, is that we're mostly just oblivious to all the ways in which being a white male comes with its set of benefits and privileges.
+
+The title itself points to this: "How I Discovered Gender Discrimination". Discovered. As if no one has ever seen it before. The writer obviously hasn't, and I imagine his experience is not uncommon.
+
+You don't often run into a situation like this where you get to experience what others go through ([although computer games could soon change that](http://blogs.kqed.org/mindshift/2013/05/how-do-you-teach-empathy-harvard-pilots-game-simulation/ "How Do You Teach Empathy? Harvard Pilots Game Simulation")), so the fact that Kim was willing to share his experience should hopefully be enlightening for everyone.
