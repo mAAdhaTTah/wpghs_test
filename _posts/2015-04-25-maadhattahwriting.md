@@ -2,11 +2,12 @@
 ID: 4376
 post_title: mAAdhaTTah/writing
 author: James DiGioia
-post_date: 2015-04-25 13:19:45
+post_date: 2015-04-25 13:19:52
 post_excerpt: ""
 layout: post
-permalink: http://jamesdigioia.com/?p=4376
-published: false
+permalink: >
+  http://jamesdigioia.com/maadhattahwriting/
+published: true
 _format_link_url: https://github.com/mAAdhaTTah/writing
 ---
 Today, I'm starting a new experiment; I've been working on a plugin called [WordPress<-->GitHub Sync][1], which exports my WordPress posts to markdown on GitHub, as well as imports those posts if I make changes there. You can see the plugin at the link below.
