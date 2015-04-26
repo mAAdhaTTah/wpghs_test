@@ -2,11 +2,12 @@
 ID: 4297
 post_title: 'BUG REPORTActions Taken: Purchase all the same s&#8230;'
 author: James DiGioia
-post_date: 2015-04-22 12:15:22
+post_date: 2015-04-26 12:52:30
 post_excerpt: ""
 layout: post
-permalink: http://jamesdigioia.com/?p=4297
-published: false
+permalink: >
+  http://jamesdigioia.com/bug-reportactions-taken-purchase-all-the-same-s/
+published: true
 ---
 BUG REPORT
 
