@@ -9,7 +9,7 @@ permalink: >
   http://jamesdigioia.com/bug-reportactions-taken-purchase-all-the-same-s/
 published: true
 ---
-BUG REPORT
+BUG REPORT: Sock Drawer 0.3.1
 
 Actions Taken: Purchase all the same socks every time I need new ones.
 
