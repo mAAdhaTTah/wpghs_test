@@ -9,3 +9,6 @@ permalink: >
   http://jamesdigioia.com/jquery-all-the-things/
 published: true
 ---
+[Source][1]
+
+ [1]: http://stackoverflow.com/questions/503093/how-can-i-make-a-redirect-page-using-jquery
