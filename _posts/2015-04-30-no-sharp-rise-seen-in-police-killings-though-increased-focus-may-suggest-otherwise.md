@@ -16,4 +16,4 @@ _format_link_url: >
 ---
 > “People are shocked by all these shootings,” said Peter Moskos, a former Baltimore police officer who is an assistant professor at the John Jay College of Criminal Justice at City University of New York. “But they’ve always been there.”
 
-THAT'S THE WHOLE PROBLEM!
+THAT'S THE PROBLEM!
