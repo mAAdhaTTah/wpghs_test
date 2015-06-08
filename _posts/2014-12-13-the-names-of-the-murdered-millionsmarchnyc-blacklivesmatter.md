@@ -5,7 +5,7 @@ author: James DiGioia
 post_date: 2014-12-13 18:23:43
 post_excerpt: ""
 layout: post
-permalink: http://jamesdigioia.com/?p=3518
-published: false
+permalink: >
+  http://jamesdigioia.com/the-names-of-the-murdered-millionsmarchnyc-blacklivesmatter/
+published: true
 ---
-http://ift.tt/1yLOW7W
