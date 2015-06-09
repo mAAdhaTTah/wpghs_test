@@ -5,7 +5,7 @@ author: James DiGioia
 post_date: 2014-12-03 20:15:01
 post_excerpt: ""
 layout: post
-permalink: http://jamesdigioia.com/?p=3476
-published: false
+permalink: >
+  http://jamesdigioia.com/10th-ave-shutitdown-ericgarner-nojusticenotree/
+published: true
 ---
-http://scontent-b.cdninstagram.com/hphotos-xfa1/t51.2885-15/10817771_301429046719857_1653233067_n.jpg
