@@ -5,7 +5,7 @@ author: James DiGioia
 post_date: 2014-12-11 15:00:39
 post_excerpt: ""
 layout: post
-permalink: http://jamesdigioia.com/?p=3500
-published: false
+permalink: >
+  http://jamesdigioia.com/but-if-you-cut-down-a-tree-its-not-really-live-anymore/
+published: true
 ---
-http://ift.tt/1Bi6wnb
