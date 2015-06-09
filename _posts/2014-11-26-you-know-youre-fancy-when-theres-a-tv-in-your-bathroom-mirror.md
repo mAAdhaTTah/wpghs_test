@@ -5,7 +5,7 @@ author: James DiGioia
 post_date: 2014-11-26 21:59:56
 post_excerpt: ""
 layout: post
-permalink: http://jamesdigioia.com/?p=3456
-published: false
+permalink: >
+  http://jamesdigioia.com/you-know-youre-fancy-when-theres-a-tv-in-your-bathroom-mirror/
+published: true
 ---
-http://ift.tt/1rnv3H2
