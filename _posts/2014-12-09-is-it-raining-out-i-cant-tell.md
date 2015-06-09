@@ -5,7 +5,7 @@ author: James DiGioia
 post_date: 2014-12-09 13:41:37
 post_excerpt: ""
 layout: post
-permalink: http://jamesdigioia.com/?p=3494
-published: false
+permalink: >
+  http://jamesdigioia.com/is-it-raining-out-i-cant-tell/
+published: true
 ---
-http://ift.tt/1vAzoBC
