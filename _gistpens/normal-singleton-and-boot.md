@@ -2,7 +2,7 @@
 ID: 4493
 post_title: normal-singleton-and-boot
 author: James DiGioia
-post_date: 2015-08-06 00:06:39
+post_date: 2015-08-06 00:09:52
 post_excerpt: ""
 layout: gistpen
 permalink: >
