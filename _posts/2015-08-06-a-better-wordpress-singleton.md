@@ -2,11 +2,12 @@
 ID: 4475
 post_title: A Better WordPress Singleton
 author: James DiGioia
-post_date: 2015-08-06 10:29:50
+post_date: 2015-08-06 10:30:40
 post_excerpt: ""
 layout: post
-permalink: http://jamesdigioia.com/?p=4475
-published: false
+permalink: >
+  http://jamesdigioia.com/a-better-wordpress-singleton/
+published: true
 ---
 If you look at any WordPress plugin of significant size, you'll probably find most of them boot the same way. From [BuddyPress][1], to [PressForward][2], to [JetPack][3], all of these boot the same way: with singletons. JetPack in particular is interesting, as many of its modules are [also][4] [singletons][5] [themselves][6]. It's an extremely common pattern in WordPress plugin development, wrapping the main plugin class in a singleton and instantiating it through a static method, which then enforces only a single instance of the class exists and *can ever exist*. The prototypical example looks like this in PHP:
 
@@ -39,6 +40,8 @@ Now, you might think you just throw `$app = new PluginClass(__FILE__);` into you
 This was pulled from a suggestion in a pull request on the [WordPress Plugin Boilerplate][9], so I can't claim credit for it, but it is a great way of solving the global problem. Now, the class is instantiated, its boot method is run, access to its constructor is preserved, no globals are leaked, and you still enforce it as a singleton.
 
 This singleton design is implemented in the WordPress plugin framework I'm building, [jaxion][10], so you can see the current implementation [here][11]. The boot method will be the default startup for [jaxion-boostrap][12], the plugin boilerplate built on jaxion. You can see the current implementation [here][12].
+
+What do you think? Will you start using this singleton pattern in your WordPress plugins?
 
  [1]: https://github.com/buddypress/BuddyPress/blob/master/src/bp-loader.php#L134-L153
  [2]: https://github.com/PressForward/pressforward/blob/master/pressforward.php#L54-L62
