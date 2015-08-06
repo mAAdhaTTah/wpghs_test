@@ -1,8 +1,8 @@
 ---
-ID: 4485
+ID: 4489
 post_title: improved-boot
 author: James DiGioia
-post_date: 2015-08-06 00:01:18
+post_date: 2015-08-06 00:03:19
 post_excerpt: ""
 layout: gistpen
 permalink: >
