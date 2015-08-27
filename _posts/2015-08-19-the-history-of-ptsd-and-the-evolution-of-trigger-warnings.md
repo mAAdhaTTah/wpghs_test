@@ -13,4 +13,4 @@ published: true
 _format_link_url: >
   http://www.newrepublic.com/article/121866/history-ptsd-and-evolution-trigger-warnings
 ---
-Regardless of how you feel about trigger warnings, you have to appreciate that someone has finally taken the time to investigate their origins on their own terms, rather than simply tut-tutting them.
+Regardless of how you feel about trigger warnings, you have to appreciate that someone has taken the time to investigate their origins on their own terms, rather than simply tut-tutting them.
