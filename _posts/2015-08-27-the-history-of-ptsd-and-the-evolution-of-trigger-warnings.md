@@ -4,7 +4,7 @@ post_title: >
   The History of PTSD and the Evolution of
   Trigger Warnings
 author: James DiGioia
-post_date: 2015-08-19 19:17:13
+post_date: 2015-08-27 19:23:13
 post_excerpt: ""
 layout: post
 permalink: >
