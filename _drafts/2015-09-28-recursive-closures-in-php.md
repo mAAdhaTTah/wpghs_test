@@ -2,7 +2,7 @@
 ID: 4576
 post_title: Recursive Closures in PHP
 author: James DiGioia
-post_date: 2015-09-28 17:50:21
+post_date: 2015-09-28 17:52:22
 post_excerpt: ""
 layout: post
 permalink: http://jamesdigioia.com/?p=4576
@@ -45,7 +45,9 @@ But we can't do this as directly in PHP, because we don't have closure scoping, 
     };
     
 
-This passes the reference to `$remove`, rather its value. At the time the closure is defined, the reference isn't to *anything*, actually. But when the closure is executed, the reference is now to the actual closure[^2].
+This passes the reference to `$remove`, rather its value. At the time the closure is defined, the reference isn't to *anything*, actually. But when the closure is executed, the reference is now to the actual closure[^2]. This way, the closure can use and call itself recursively, until it's done what it needs to do.
+
+And that's how you do recursive closures in PHP. Just be warned of one thing: with XDebug turn on, the stack depth is limited to 200, and
 
 [^1]:    
     Specifics redacted to protect the guilty.
