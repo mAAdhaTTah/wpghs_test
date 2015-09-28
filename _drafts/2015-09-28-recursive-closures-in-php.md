@@ -2,7 +2,7 @@
 ID: 4576
 post_title: Recursive Closures in PHP
 author: James DiGioia
-post_date: 2015-09-28 17:48:21
+post_date: 2015-09-28 17:50:21
 post_excerpt: ""
 layout: post
 permalink: http://jamesdigioia.com/?p=4576
@@ -45,5 +45,10 @@ But we can't do this as directly in PHP, because we don't have closure scoping, 
     };
     
 
+This passes the reference to `$remove`, rather its value. At the time the closure is defined, the reference isn't to *anything*, actually. But when the closure is executed, the reference is now to the actual closure[^2].
+
 [^1]:    
     Specifics redacted to protect the guilty.
+
+[^2]:    
+    Which, curiously, is an object in PHP, with the magic method `__invoke` defined as the closure.
