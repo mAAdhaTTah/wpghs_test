@@ -2,7 +2,7 @@
 ID: 4576
 post_title: Recursive Closures in PHP
 author: James DiGioia
-post_date: 2015-09-28 17:54:22
+post_date: 2015-09-28 17:55:05
 post_excerpt: ""
 layout: post
 permalink: http://jamesdigioia.com/?p=4576
@@ -47,10 +47,14 @@ But we can't do this as directly in PHP, because we don't have closure scoping, 
 
 This passes the reference to `$remove`, rather its value. At the time the closure is defined, the reference isn't to *anything*, actually. But when the closure is executed, the reference is now to the actual closure[^2]. This way, the closure can use and call itself recursively, until it's done what it needs to do.
 
-And that's how you do recursive closures in PHP. Just note one thing: with XDebug turn on, the stack depth is limited to 200, and it will error out if it goes deeper than that. PHP's max stack depth is really only limited by its memory allocation at runtime, generally speaking.
+And that's how you do recursive closures in PHP.
+
+Just note one thing: with XDebug turn on, the stack depth is limited to 200, and it will error out if it goes deeper than that. PHP's max stack depth is really only limited by its memory allocation at runtime, generally speaking. On the other hand, JavaScript's max stack depth [varies by browser][1]
 
 [^1]:    
     Specifics redacted to protect the guilty.
 
 [^2]:    
     Which, curiously, is an object in PHP, with the magic method `__invoke` defined as the closure.
+
+ [1]: http://stackoverflow.com/questions/7826992/browser-javascript-stack-size-limit
