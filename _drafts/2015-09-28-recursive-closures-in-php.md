@@ -2,7 +2,7 @@
 ID: 4576
 post_title: Recursive Closures in PHP
 author: James DiGioia
-post_date: 2015-09-28 17:41:13
+post_date: 2015-09-28 17:43:13
 post_excerpt: ""
 layout: post
 permalink: http://jamesdigioia.com/?p=4576
@@ -17,7 +17,11 @@ I don't know how often this comes up, but the other day, I ran into a situation 
     widget widget widget
     
 
-Insofar as that graph has any meaning to anyone. Imagine this extending outwards, so there were many "types", each with 2 or 3 widgets, and each "kind" then has 2 or 3 "types". If any "type" has no widgets, it too gets disabled; same for "kind."
+Insofar as that graph has any meaning to anyone. Imagine this extending outwards, so there were many "types", each with 2 or 3 widgets, and each "kind" then has 2 or 3 "types". If any "type" has no widgets, it too gets disabled; same for "kind." And obviously, the total universe of things to sell has many kinds.
+
+So we need to go through each level, and check both that each item (a widget, a type, or a kind), is both active (as per the dates set) as well as has children (except for the widget level). If it's no longer active, we need to remove it as well as all of its children from being displayed on a webpage.
+
+One solution is to just create a method for this purpose to call itself, but then you have to go off to another location to look at the code, which isn't particularly useful if you're
 
 [^1]:    
     Specifics redacted to protect the guilty.
