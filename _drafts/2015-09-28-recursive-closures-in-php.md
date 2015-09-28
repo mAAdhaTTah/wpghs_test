@@ -2,7 +2,7 @@
 ID: 4576
 post_title: Recursive Closures in PHP
 author: James DiGioia
-post_date: 2015-09-28 17:45:13
+post_date: 2015-09-28 17:46:21
 post_excerpt: ""
 layout: post
 permalink: http://jamesdigioia.com/?p=4576
@@ -25,14 +25,12 @@ One solution is to just create a method for this purpose to call itself, but the
 
 Another option is use a closure. In JavaScript, it's pretty easy to write one of these, as the variables within the `function`'s scope are accessible when the function is run:
 
-            $remove = function($pageId) use (&$pages, &$remove) {
-                foreach ($pages[$pageId]->getChildPageIds() as $childPageId) {
-                    $remove($pages[$childPageId]);
-                }
+var remove = function(pageId) { pages[pageId].getChildPageIds().forEach(function(childPageId) { remove($pages[$childPageId]); });
+
+    delete pages[$pageId];
     
-                unset($pages[$pageId]);
-            };
-    
+
+};
 
 [^1]:    
     Specifics redacted to protect the guilty.
