@@ -5,8 +5,8 @@ author: James DiGioia
 post_date: 2015-06-09 16:57:05
 post_excerpt: ""
 layout: post
-permalink: http://jamesdigioia.com/?p=4452
-published: false
+permalink: http://jamesdigioia.com/programming-logic-and-human-values-the-computer-is-never-neutral/
+published: true
 ---
 Since I started working in web development and programming, my dad has been fond of repeating this somewhat common phrase about the field:
 
