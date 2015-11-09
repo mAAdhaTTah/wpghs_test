@@ -14,12 +14,10 @@ custom_tagline:
 ---
 ### Who Am I?
 
-I am a digital and social media manager with experience in the education and media industries.
+I am a front- and back-end developer working in JavaScript and PHP with experience in ecommerce applications.
 
 ### Skills
 
+*   HTML, CSS, PHP (WordPress, ), Javascript (jQuery, Backbone, Underscore)
 *   Twitter, Facebook, Google+, LinkedIn, and other social networks
-*   Hootsuite, TweetDeck, Storify
-*   HTML, CSS, PHP (WordPress), Javascript (jQuery, Backbone, Underscore)
-*   Microsoft Office: Word, Excel, Powerpoint
 *   Public speaking and workshop training
