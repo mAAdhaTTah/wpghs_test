@@ -10,13 +10,15 @@ layout: post
 permalink: http://jamesdigioia.com/?p=3119
 published: false
 ---
-One of the last things I had to do before [launching WP-Gistpen 0.4.0][1] was go through the codebase and make sure I was handling errors correctly. Internally to the plugin, I first double checked that everything was kicking up errors rather than continuing on,[^1] but I then had to figure out how to display those errors to the user so they could either do something different about it, or report enough information to me so I could fix the problem.
+Despite the existence of `WP_Error` and all the pieces required, this is no single "WordPress Way" to handle and display errors. You can indicate an error occurred in a function or method by returning said `WP_Error` object (and that's been my usual MO in my work), but once we do, how do we handle these error objects?
 
-This was easy when dealing with the AJAX side of things: Using `wp_send_json_error` or `_success` respectively and managing that in the front-end JavaScript side was fairly easy.[^2] However, the other part of making this work was to report errors generated in the `save_post` hook, which, because WordPress doesn't include any flash message handling, is actually quite a bit more complicated than it looks.
+It's easy on the AJAX side of things: Use `wp_send_json_{error/success}` and handle the response accordingly. However, a common area where generated errors need to be displayed to the user is on the `save_post` hook, which is actually slightly more complicated than it looks.
 
-The reason for this is due to the way WordPress handles saves. If you're on a page like `post.php?post=1234` and you make your edits and hit save, WordPress `POST`'s the information to the `post.php`. After the `save_post` hook fires, it *redirects* back to the `post.php?post=1234` with some extra information, i.e. `&message=1`.
+The reason for this is due to the way WordPress handles saves. If you're on a page like `post.php?post=1234` and you make your edits and hit **save**, WordPress `POST`'s the information to `post.php`. After the `save_post` hook fires the everything that's done is done, it *redirects* back to the `post.php?post=1234` editor page.
 
-This makes things difficult because the redirect clears any global variables or class properties from memory, so we need to persist that data somehow. In my investigation, I found 3[^7] potential methods of solving this problem. I'll walk you through them all, point out some pros and cons of each, and finally explain which one I used and why.
+This makes things difficult because the redirect means the execution thread for loading the editor page isn't the same as the thread for saving the post, and we no longer have access to the same global variables we did when we were saving. Because of this, we need a way to pass that information from the action to the page we're being redirected to.
+
+Let's walk through 3 potential methods of solving this problem. I'll explain how to implement each one, point out some of their pros and cons, and explain to which contexts they're best suited.
 
 # Some Reference Boilerplate
 
@@ -24,118 +26,89 @@ Before we get started, I'm going to be using the `admin_notices` hook for error 
 
 [gistpen id="3152"]
 
-I'll detai the `my_error_messages` function for each method as we go.
-
-I'm also ignore whatever you decide to do in the `save_post` hook and just assume you end up at the end of the hook with a variable called `$errors`, which is an array of either error messages or codes, depending on which method you choose. This variable will be saved in various ways and displayed with the `my_error_messages` function. So assume something like this:
+This hook gives us a place to display messages above the page title. I'll detail the `my_error_message` function for each method as we go. I'm also going to ignore whatever you decide to do in the `save_post` hook and just assume you end up at the end of the hook with an `$error`, which is either `false` if there were no errors or a `WP_Error` object if there was. The execution flow would look something like this:
 
 [gistpen id="3161"]
 
-I'm not going to include the full `save_post` hook function, nor any manipulating of `$errors` except what you see above. I'm going to assume we're going to get to the end of `save_post` with a `$error` variable that can be either an empty array, which we'll check for, or an array of error messages or codes.
+Something happens with the `$post_id` (not pictured), and if something goes wrong, we'll create a `WP_Error` object which we'll handle.
 
-# Manipulating `$_SESSION`s
+# Save it in the `$_SESSION`
 
-Early in your PHP career, when you're learning about the superglobals like `$_GET` and `$_POST`, you may also learn about `$_SESSION`[^3]. Because the `$_SESSION` superglobal carries over within a single session, we can save our errors to it and pull from them to display them.
+PHP (and WordPress, actually) is (in)famous for its globals. Similar to how the `$_GET` and `$_POST` variables hold the data for those HTTP verbs, the `$_SESSION` global holds the data for the current session[^1]. The `$_SESSION` data is persisted in the configured session storage (e.g. memcache, Redis, filesystem) and tied to the user's session through a cookie. We can use that to save and retrieve our error message.
 
 ## How It Works
 
-First, you'll have to initiate the session, as WordPress doesn't use sessions on its own[^4]:
+First, you'll have to initiate the session, as WordPress doesn't use sessions on its own:
 
 [gistpen id="3150"]
 
-This should go somewhere early in your plugin, although I think you can start the session in the `save_post` hook itself if you'd like. I didn't use this solution, but that's where [this StackExchange answer][2] suggests it should go. Your milage may vary.
-
-I wouldn't follow that answer exactly, however. Here's how I would do it:
+This should be hooked in early in the WordPress lifecycle, although I think you could start the session in the `save_post` hook itself if you'd like. Then, we save the error to the session:
 
 [gistpen id="3164"]
 
-Then, in the `admin_notices` hook:
+Finally, in the `admin_notices` hook:
 
 [gistpen id="3166"]
 
-That will loop through the error and output them above the page title.
+we pull the error message from the session and output it above the page title.
 
 ## Pros and Cons
 
-On the plus side, this solution is fairly easy to implement and doesn't require you to hit the database, which the next two solutions do. The major problem with it, as alluded to earlier, is that WordPress doesn't use sessions. It is intended to be "stateless," so it doesn't maintain that information in that way as it proceeds through its operations, which could causes problems for some users on particular hosts. As [popsi explained in the answer to that question][3], "people will hate you for it." Fundamentally, it's not "The WordPress Way" and runs counter to the philosphy of the project, but it is an easy and lightweight solution to the problem if you're building a tool for yourself or a client, where you have full control over the environment.
+On the plus side, this solution is fairly easy to implement and doesn't require you to hit the database, which the other two solutions do. The major problem with it is: *WordPress doesn't use sessions*. It's designed to be "stateless," so it's not designed to maintain information as it proceeds through its operations, which will causes problems for some users if they don't have a session store. Fundamentally, it's not "The WordPress Way" and runs counter to the philosophy of the project, but it is an easy and lightweight solution to the problem if you're building a tool for yourself or a client, where you have full control over the environment.
 
-# Saving as a Transient
+# Saving it in a Transient
 
-Transients are a WordPress method of short-term caching, basically. They have an expiration time and aren't intended to hold long-term bits of information, but they can be very useful in this context.
+Transients are a WordPress caching API. It allows you to save any kind of information with an expiration date, like you would in any other cache. Under the hood, the Transient API will attempts to save your data to the object cache, *if you have a persistent cache enabled*. If you don't, it will save your data to the `wp_options` table. This way, no matter how the site's back-end is configured there's a (somewhat) reliable API for persisting short-term data. It abstracts out a lot of hard work for you.
+
+One word of caution: While the data should be there (and for the short period of time we're saving it for, it almost always will be) when we get it, there are reasons it could get lost, especially of it's being saved to the object cache. You can't assume the data will always be there. If you absolutely need the information to persist, you should save it to the database directly.
 
 ## How It Works
 
-We don't need to initiate anything to get started with transients. When you have your errors array, just set a transient with the information:
+We don't need to initiate anything to get started with transients. When you get an error, just set a transient with the information (you'll need to fetch the `$user_id` in advance):
 
 [gistpen id="3147"]
 
-[Here's the reference for that function][4]. Just note that the last param is the number of seconds that the transient will last for. 45 seconds should be enough time to save and get the data later, and if it isn't, you're doing something verrrrry wrong with your WordPress install.
+[Here's the reference for that function][1]. Just note that the last param is the number of seconds that the transient will last for. 45 seconds should be enough time to save and get the data, and if it isn't, something has gone horribly wrong.
 
 Then, in the `admin_notices` hook:
 
 [gistpen id="3167"]
 
-Similar loop as above. Don't forget to delete the transient, though it'll get deleted on its own in 45 seconds.
+we grab the `WP_Error` from the cache and display its message. Don't forget to clean up after yourself!
 
 ## Pros and Cons
 
-On the plus side, this is certainly a WordPress-friendly way of managing these errors, and transients are designed for caching stuff like this, so the data will be cleared out on its own, even if you forget to clear it yourself. The primary problem with this solution is it has to hit the database, so if you don't want to add another query to your plugin, you'd want to avoid this method.
+On the plus side, this is a WordPress-friendly way of managing these errors, designed for caching stuff like this. The data will be cleared out on its own, even if you forget to clear it yourself, so it provides a kind of sanity check for you, wiping or ignoring stale error messages. The primary problem with this solution is it has to hit the database if you don't have an object cache installed, so if you're doing a lot of work in the `save_post` hook and don't want to add another query, this may not be the ideal solution.
 
-I'll also add you can use this same idea with `post_meta`. I was told this doesn't add an extra query, as it just adds a statement to the query for the post, but I'm not entirely sure that's the case. My view on it is that you shouldn't use `post_meta` data for temporary data anyway, but if someone can confirm that's true, I'll update this post.
+I'll also mention you can use this same idea with `post_meta`. If I recall correctly, this may not add an extra query, as it just adds a statement to the query for the post, but I'm not sure. Using `post_meta` for temporary data isn't really it's ideal purpose, but if it gives you a performance boost, it may be worth it. Definitely make sure to clean up after yourself then, since that won't be done for you with `post_meta` the way `transients` do.
 
 # Adding a `GET` Param to the Redirect
 
-This ended up being the method I went with, and it's actually the way WordPress shows its "Post Updated" message. Here's how that works:
+This third method is actually the way WordPress shows its "Post Updated" message: with a `$_GET` param. In WordPress's instance, it sets the `message` value to a number, and uses that number to display a particular message. You can do something similar, adding the `WP_Error`'s code, instead of its full message, to the url as a query var.
 
-First of all, you're going to want to use error codes instead of full error messages. As you fill in your array, if you're using `WP_Error` objects, use the `get_error_code` method instead, which will be a shorter version of error than a full message. Because we're passing via the `$_GET` param, we don't want to pass super long strings up there or the URL is going to look dopey as hell.
-
-So at the end of our `save_post` hook, let's check for errors, and if so, add them to the URL parameter:
+At the end of our `save_post` hook, we add the error code to the URL parameter:
 
 [gistpen id="3145"]
 
-In this case, we're using an anonymous function with the `use` statement so we can reuse the `$errors` variable in the function, and we have to convert the array to a string with `implode`.[^5]
+Anonymous functions weren't ADDED until PHP 5.3, and WordPress supports 5.2+, so their use here may disqualify you from this method, but this is a pretty ideal use case for them, pulling in a variable from its context and using it in the filter.
 
-Then, we display the error codes in the admin_notices hook:
+Then, we display the error message, based on its code, in the admin_notices hook:
 
 [gistpen id="3169"]
 
 ## Pros and Cons
 
-The big plus on this is you never have to hit the database. All of the error codes are stored and retrieved in memory, which makes it much more performant than the others.[^6] The negative side is you're limited in this case to passing a string. This limits the amount of information that can be passed through this method, but works well enough if you have simple errors and good error codes.
+The big plus on this is you never have to hit the database. All of the error codes are stored and retrieved in memory, which makes it much more performant than the others. The negative side is you have to duplicate the messages in both the instantiation of the `WP_Error` object and the switch statement. You can't use a constant or a set of variables or anything like that because then the strings can't be translated. If you have a limited number of error codes, this shouldn't be an issue, but if your application gets large, it could be more difficult to maintain long-term.
 
 # Conclusion
 
-As I mentioned, I used the 3rd method in WP-Gistpen. You can find the information about the errors in the [Saver class][5] and the display in the [Editor class][6].
+Each of these three methods are better or easier to implement in various situations. I like to use transients to pass data around across page loads, especially when displaying error messages the user needs to see and possibly react to. The query variable has the lowest overhead of all three, and works great when your application only generates a small number of errors. And while the session isn't really supported by WordPress, it is a common method for flashing messages to the user in other applications.
 
-Hope that helps. If you have any questions, leave a comment below.
+I hope that these potential approaches to displaying error messages have been useful to you. Let me a comment if you have any questions.
 
 [^1]:    
-    I actually ran into an issue where, because of an unrelated bug, the `query` class was getting malformed data back from one of its operations and instead of kicking the error up the chain like it should, it was inserting the malformed data into the object it was building, which caused all sorts of headaches on the front-end until I figured out where the actual issue was. It's also the reason I didn't release last weekend, as I realized my error handling was not up-to-par either.
+    [The reference in the PHP manual,][2] and [here's a good tutorial ons it.][3]
 
-[^2]:    
-    For right now, I'm just `console.log`'ing a lot of that stuff, which obviously isn't the best way to do it, but given that I'm dealing primarily with developers as my audience, I'm assuming they know what the console is and can pull the error message for me to troubleshoot. I'll probably release better error handling in 0.5.0, maybe 0.4.1 if I get more issues that I bargained for.
-
-[^7]:    
-    Technically 4, but I combined `transients` and `post_meta` into one section because the idea for both is similar.
-
-[^3]:    
-    If you didn't, then you're a bad developer. Kidding! It happened to be covered in one of the early video lessions I watched, but if you haven't learned it, [here's the reference in the PHP manual,][7] and [here's a good tutorial on how to use it.][8]
-
-[^4]:    
-    Which, as you'll see shortly, is one of the problems with this solution.
-
-[^5]:    
-    Just note: this is NOT compatible with PHP 5.2, and WordPress is compatible with 5.2+, so if this is an issue for you, choose another solution.
-    
-    The other possibility is what I did, which is to do this all in an object-oriented fashion and save the errors as a class property which is accessed later. I won't go through the details of that here because this tutorial is functional, not object-oriented.
-
-[^6]:    
-    Transients will work as in-memory as well if the user has memcached or some other caching plugin installed, although we can't assume that's the case.
-
- [1]: http://jamesdigioia.com/wp-gistpen-0-4-0-released/
- [2]: http://wordpress.stackexchange.com/a/19980
- [3]: http://wordpress.stackexchange.com/questions/5102/add-validation-and-error-handling-when-saving-custom-fields/19980#comment84922_19980
- [4]: https://developer.wordpress.org/reference/functions/set_transient/
- [5]: https://github.com/mAAdhaTTah/WP-Gistpen/blob/develop/admin/includes/class-wp-gistpen-saver.php
- [6]: https://github.com/mAAdhaTTah/WP-Gistpen/blob/develop/admin/includes/class-wp-gistpen-editor.php
- [7]: http://php.net/manual/en/reserved.variables.session.php
- [8]: http://www.sitepoint.com/php-sessions/
+ [1]: https://developer.wordpress.org/reference/functions/set_transient/
+ [2]: http://php.net/manual/en/reserved.variables.session.php
+ [3]: http://www.sitepoint.com/php-sessions/
