@@ -1,11 +1,19 @@
 ---
-post_title: 'Fat Arrow Functions, One-Line Callbacks, and Composing Promises'
+ID: 4772
+post_title: >
+  Fat Arrow Functions, One-Line Callbacks,
+  and Composing Promises
+author: James DiGioia
+post_date: 2015-12-09 13:04:58
+post_excerpt: ""
 layout: post
+permalink: >
+  http://jamesdigioia.com/fat-arrow-functions-one-line-callbacks-and-composing-promises/
 published: true
 ---
-I'm not really a fan of [fat arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) in ES2015 for the same reason I don't like the introduction of `class`: JavaScript is a prototypal language, so attempting to cram class-based inheritance is squeezing a round peg into a square hole. The prototype chain and closure scoping make for a number of interesting patterns for solving problems and structuring your code, and I'd rather see more exploration about what power that gives us . [Eric Elliott](https://vimeo.com/69255635) has written a number of [really interesting articles](https://medium.com/javascript-scene/common-misconceptions-about-inheritance-in-javascript-d5d9bab29b0a) about object composition that have been really thought provoking.
+I'm not really a fan of [fat arrow functions][1] in ES2015 for the same reason I don't like the introduction of `class`: JavaScript is a prototypal language, so attempting to cram class-based inheritance is squeezing a round peg into a square hole. The prototype chain and closure scoping make for a number of interesting patterns for solving problems and structuring your code, and I'd rather see more exploration about what power that gives us . [Eric Elliott][2] has written a number of [really interesting articles][3] about object composition that have been really thought provoking.
 
-Fat arrow functions are primarily used to bind a function's `this` to its lexical scope. That's not [*all*](https://github.com/getify/You-Dont-Know-JS/issues/513) it does; they also bind their `arguments` and `super` as well. There's a [great explanation](http://blog.getify.com/arrow-this/) about how they fully work, but their common purpose is to bind `this` to the scope of the arrow function. That's not what we need; we need to use scoping more effectively so binding `this` isn't necessary and play into the strengths of the language.
+Fat arrow functions are primarily used to bind a function's `this` to its lexical scope. That's not [*all*][4] it does; they also bind their `arguments` and `super` as well. There's a [great explanation][5] about how they fully work, but their common purpose is to bind `this` to the scope of the arrow function. That's not what we need; we need to use scoping more effectively so binding `this` isn't necessary and play into the strengths of the language.
 
 I am, however, a huge fan of Promises, and I've been working on a project recently that makes heavy use of them, and not only do they make handling asynchronous code a breeze, it's much easier to build concurrency into the application as well. With the Bluebird library, composing Promise chains and setting up dependencies for a set of asynchronous actions is *fun*. It is during the composition of these chains that fat arrow functions make for some really elegant syntax.
 
@@ -28,3 +36,9 @@ If you have 3 or 4 of these steps, you can see how writing these becomes an abso
 The other thing writing fat arrow functions do is, when written on one line like this, they **always return a value.** One of the most annoying bugs to solve is a Promise chain is falling down because you forgot to return a value or a Promise somewhere. Because one-line fat arrow function always return a value, they protect you from making this mistake and save you from a lot of time debugging stupid problems.
 
 Most of my callbacks are being written in this pattern, and it's been really lovely. Fat arrow functions look a little weird compared to what we're used to, but they have some nice use cases.
+
+ [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+ [2]: https://vimeo.com/69255635
+ [3]: https://medium.com/javascript-scene/common-misconceptions-about-inheritance-in-javascript-d5d9bab29b0a
+ [4]: https://github.com/getify/You-Dont-Know-JS/issues/513
+ [5]: http://blog.getify.com/arrow-this/
