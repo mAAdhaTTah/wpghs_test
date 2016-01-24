@@ -9,4 +9,4 @@ permalink: >
   http://jamesdigioia.com/using-wordpress-as-an-oembed-provider/
 published: true
 ---
-[gallery ids="4821,4823"]Proof-of-concept, using WordPress as an oEmbed provider, to embed code snippets.
+Proof-of-concept, using WordPress as an oEmbed provider, to embed code snippets.
