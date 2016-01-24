@@ -9,4 +9,4 @@ permalink: >
   http://jamesdigioia.com/oembeding-in-wp-gistpen/
 published: true
 ---
-Proof-of-concept, using WordPress as an oEmbed provider, to embed code snippets.
+[gallery ids="4821,4823"]Proof-of-concept, using WordPress as an oEmbed provider, to embed code snippets.
