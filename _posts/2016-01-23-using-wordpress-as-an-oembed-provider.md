@@ -6,7 +6,7 @@ post_date: 2016-01-23 23:29:53
 post_excerpt: ""
 layout: post
 permalink: >
-  http://jamesdigioia.com/oembeding-in-wp-gistpen/
+  http://jamesdigioia.com/using-wordpress-as-an-oembed-provider/
 published: true
 ---
 [gallery ids="4821,4823"]Proof-of-concept, using WordPress as an oEmbed provider, to embed code snippets.
