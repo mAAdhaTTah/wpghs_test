@@ -1,6 +1,6 @@
 ---
 ID: 4820
-post_title: oEmbeding in WP-GIstpen
+post_title: Using WordPress as an oEmbed Provider
 author: James DiGioia
 post_date: 2016-01-23 23:29:53
 post_excerpt: ""
