@@ -9,3 +9,4 @@ permalink: http://jamesdigioia.com/flexbox-froggy/
 published: true
 _format_link_url: http://flexboxfroggy.com/
 ---
+This is a surprisingly helpful (and cute!) tool for learning Flexbox.

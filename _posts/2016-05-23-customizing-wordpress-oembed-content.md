@@ -11,3 +11,4 @@ published: true
 _format_link_url: >
   https://www.sitepoint.com/customizing-wordpress-oembed-content/
 ---
+I had been working on oEmbed into WP-Gistpen, so I wrote this tutorial on customizing oEmbed content from WordPress yourself. How have you been using the new oEmbed feature in WordPress?

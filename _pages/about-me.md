@@ -9,8 +9,8 @@ permalink: http://jamesdigioia.com/about-me/
 published: true
 custom_tagline:
   - |
-    <p>Social Media Manager, <a href="http://www.worldsciencefestival.com/">World Science Festival</a> <img src="http://jamesdigioia.dev/app/uploads/2014/01/JamesAvatar.jpg" class="alignright" /></p>
-    <p>Blogger, <a href="http://www.thinklearnspeak.com/">Think. Learn. Speak.</a></p>
+    a:1:{i:0;s:278:"<p>Social Media Manager, <a href="http://www.worldsciencefestival.com/">World Science Festival</a> <img src="http://jamesdigioia.dev/app/uploads/2014/01/JamesAvatar.jpg" class="alignright" /></p>
+    <p>Blogger, <a href="http://www.thinklearnspeak.com/">Think. Learn. Speak.</a></p>";}
 ---
 ### Who Am I?
 

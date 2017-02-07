@@ -1,15 +1,12 @@
 ---
 ID: 4576
 post_title: Recursive Closures in PHP
-author:
-  - James DiGioia
-post_date:
-  - 2015-09-28 17:57:58
-post_excerpt:
-  - ""
+author: James DiGioia
+post_date: 2015-10-26 17:37:38
+post_excerpt: ""
 layout: post
-permalink:
-  - ""
+permalink: >
+  http://jamesdigioia.com/recursive-closures-in-php/
 published: true
 ---
 I don't know how often this comes up, but I recently needed to create a one-off recursive function. Here's how I did it in PHP.

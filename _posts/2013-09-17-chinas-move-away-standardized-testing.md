@@ -23,15 +23,13 @@ nom_id:
 submitted_by:
   - ""
 nomination_permalink:
-  - >
-    http://zhaolearning.com/2013/08/22/china-enters-%E2%80%9Ctesting-free%E2%80%9D-zone-the-new-ten-commandments-of-education-reform/
+  - 'http://zhaolearning.com/2013/08/22/china-enters-%E2%80%9Ctesting-free%E2%80%9D-zone-the-new-ten-commandments-of-education-reform/'
 authors:
   - ""
 item_date:
   - 2013-08-28 21:27:43
 item_link:
-  - >
-    http://zhaolearning.com/2013/08/22/china-enters-%E2%80%9Ctesting-free%E2%80%9D-zone-the-new-ten-commandments-of-education-reform/
+  - 'http://zhaolearning.com/2013/08/22/china-enters-%E2%80%9Ctesting-free%E2%80%9D-zone-the-new-ten-commandments-of-education-reform/'
 date_nominated:
   - 2013-08-28 21:27:43
 nom_count:

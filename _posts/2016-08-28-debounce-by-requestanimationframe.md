@@ -11,3 +11,4 @@ published: true
 _format_link_url: >
   http://jamesdigioia.com/gistpens/debounce-by-requestanimationframe/
 ---
+Not sure this is best, but using Kefir's `withHandler`, this debounce's the values from the stream to only emit the latest value on `requestAnimationFrame`.

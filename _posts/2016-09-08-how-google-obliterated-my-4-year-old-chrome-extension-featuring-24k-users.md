@@ -12,3 +12,4 @@ permalink: >
 published: true
 _format_link_url: 'https://by.graffino.com/how-google-obliterated-my-24k-users-chrome-extension-eeb14c040a39#.kc17y82ma'
 ---
+This is your regular reminder that you're just a renter on Google's land.
