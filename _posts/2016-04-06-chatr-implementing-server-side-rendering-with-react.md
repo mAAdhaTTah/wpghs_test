@@ -49,13 +49,13 @@ On the client side, we call the `render` method with the component as well as th
 
 From there, you can bootstrap your application however you'd like, depending upon how you choose to structure your application. In the next article, we're going to start wiring up the RxJS streams, building a stream that will model our state as a series of messages as well functioning as a clearinghouse for all of the messages running through the client application. In this way, we'll be able to direct those messages to and from the server and throughout the server application, with the UI just responding to state refreshes from this main stream.
 
-  [introduction to the series]: http://jamesdigioia.dev/chatr-exploring-react-rxjs-with-a-chat-application/
-  [`express.js`]: http://expressjs.com/
-  [`handlebars`]: http://handlebarsjs.com/
-  [`babel`]: https://babeljs.io/
-  [reusable components]: http://facebook.github.io/react/docs/reusable-components.html
-  [`react-dom`]: https://www.npmjs.com/package/react-dom
-  [v0.14]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html
-  [`react-native`]: https://github.com/facebook/react-native
-  [spread attributes]: https://facebook.github.io/react/docs/jsx-spread.html
-  [spread operator]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator
+[introduction to the series]: http://jamesdigioia.dev/chatr-exploring-react-rxjs-with-a-chat-application/
+[`express.js`]: http://expressjs.com/
+[`handlebars`]: http://handlebarsjs.com/
+[`babel`]: https://babeljs.io/
+[reusable components]: http://facebook.github.io/react/docs/reusable-components.html
+[`react-dom`]: https://www.npmjs.com/package/react-dom
+[v0.14]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html
+[`react-native`]: https://github.com/facebook/react-native
+[spread attributes]: https://facebook.github.io/react/docs/jsx-spread.html
+[spread operator]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator
