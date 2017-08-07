@@ -4,7 +4,8 @@ post_title: 'Quick Vue tip: lifecycle methods update &amp; befo&#8230;'
 author: James DiGioia
 post_excerpt: ""
 layout: post
-permalink: http://jamesdigioia.com/5332-2/
+permalink: >
+  http://jamesdigioia.com/quick-vue-tip-lifecycle-methods-update-befo/
 published: true
 post_date: 2017-08-07 15:57:17
 ---
