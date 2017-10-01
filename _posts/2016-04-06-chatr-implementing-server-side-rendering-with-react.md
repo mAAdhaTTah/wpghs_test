@@ -5,7 +5,7 @@ author: James DiGioia
 post_excerpt: ""
 layout: post
 permalink: >
-  http://jamesdigioia.dev/chatr-implementing-server-side-rendering-with-react/
+  https://jamesdigioia.com/chatr-implementing-server-side-rendering-with-react/
 published: true
 post_date: 2016-04-06 11:30:29
 ---
@@ -17,11 +17,11 @@ I got that working in the [introduction to the series][], even though it didn't 
 
 Just to get started with React, we'll replicate the current `Hello World!` setup with a simple `App` component that takes a required `headline` as its props.
 
-[embed]http://jamesdigioia.dev/gistpens/server-side-rendering-with-react/app.js/[/embed]
+[embed]https://jamesdigioia.com/gistpens/server-side-rendering-with-react/app.js/[/embed]
 
 If this is your first introduction to React, you'll notice the XML-like JSX syntax in the `render` function. This is transpiled by `babel`'s JSX plugin into React calls that create the modeled DOM structure. For the most part, JSX works a like HTML, with JavaScript weaved into it, giving you a really powerful way of describing your UI state. Because it's still JavaScript and `class` is a reserved word, you see above one of the many differences with plain HTML; we have to use `className` to give the DOM node a `class`. If we were to render it with `headline` as "Hello World!", the resulting HTML would look like this:
 
-[embed]http://jamesdigioia.dev/gistpens/server-side-rendering-with-react/rendered.html/[/embed]
+[embed]https://jamesdigioia.com/gistpens/server-side-rendering-with-react/rendered.html/[/embed]
 
 As for the other two props on the object: both them (`displayName` and `propTypes`) are primarily useful for development. One of React's greatest strengths is the ecosystem of development tools that have cropped up around it; this feature comes built-in! You get `console` messages when the component receives props of the wrong type.
 
@@ -31,7 +31,7 @@ This is a really simple component, but now we need to pass it props and render i
 
 In our main `server.js` file, we have to change the root (`/`) route to render this component instead of the static string we provided earlier. Here's the new `server.js` code:
 
-[embed]http://jamesdigioia.dev/gistpens/server-side-rendering-with-react/server.js/[/embed]
+[embed]https://jamesdigioia.com/gistpens/server-side-rendering-with-react/server.js/[/embed]
 
 [`react-dom`][] is React's DOM rendering tools. These used to be bundled with React but they were split off in [v0.14][]. They were split off from the main React package because React has ambitions beyond just the DOM, like [`react-native`][] and others, so separating the packages makes sense for the project. These tools allow us to render the React components on the server as well as to the DOM; in this case, we're using it to render the React component to a string, so the `express` server can send it to the client.
 
@@ -43,19 +43,19 @@ Lastly, we stringify the state object so we can pass it into the view, where it'
 
 On the client-side, we just need to bootstrap off the DOM node and state object we originally rendered with:
 
-[embed]http://jamesdigioia.dev/gistpens/server-side-rendering-with-react/client.js/[/embed]
+[embed]https://jamesdigioia.com/gistpens/chatr-boilerplate/client-js-2/[/embed]
 
 On the client side, we call the `render` method with the component as well as the DOM element to render onto. React will automatically pick up the fact that this is React-sourced HTML and instead of rerendering the whole page, will just attach the event listeners to the DOM, using the rendered `data-reactid` attributes.
 
 From there, you can bootstrap your application however you'd like, depending upon how you choose to structure your application. In the next article, we're going to start wiring up the RxJS streams, building a stream that will model our state as a series of messages as well functioning as a clearinghouse for all of the messages running through the client application. In this way, we'll be able to direct those messages to and from the server and throughout the server application, with the UI just responding to state refreshes from this main stream.
 
-[introduction to the series]: http://jamesdigioia.dev/chatr-exploring-react-rxjs-with-a-chat-application/
-[`express.js`]: http://expressjs.com/
-[`handlebars`]: http://handlebarsjs.com/
-[`babel`]: https://babeljs.io/
-[reusable components]: http://facebook.github.io/react/docs/reusable-components.html
-[`react-dom`]: https://www.npmjs.com/package/react-dom
-[v0.14]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html
-[`react-native`]: https://github.com/facebook/react-native
-[spread attributes]: https://facebook.github.io/react/docs/jsx-spread.html
-[spread operator]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator
+  [introduction to the series]: https://jamesdigioia.com/chatr-exploring-react-rxjs-with-a-chat-application/
+  [`express.js`]: http://expressjs.com/
+  [`handlebars`]: http://handlebarsjs.com/
+  [`babel`]: https://babeljs.io/
+  [reusable components]: http://facebook.github.io/react/docs/reusable-components.html
+  [`react-dom`]: https://www.npmjs.com/package/react-dom
+  [v0.14]: https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html
+  [`react-native`]: https://github.com/facebook/react-native
+  [spread attributes]: https://facebook.github.io/react/docs/jsx-spread.html
+  [spread operator]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator
