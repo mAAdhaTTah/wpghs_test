@@ -9,6 +9,8 @@ permalink: >
 published: true
 post_date: 2018-01-22 16:25:09
 ---
+_Update: All of the Stage 3 proposals below have advanced to Stage 4! 🎉_
+
 This week, the TC39, the standards body behind the JavaScript language, will be meeting at Google this week, January 23-25, for their first meeting of 2018. They'll be discussing several proposals to add new features to ECMAScript, the JavaScript standard. Their full agenda can be found [here][agenda], but I wanted to take a quick look at some of the important proposals they'll be discussing.
 
 This first one is the most important to me, and that's [Rest/Spread properties][rest-spread], which you may be familiar with from your usage of React & JSX. In fact, this proposal originated there as a method for easily passing properties down to child components. They'll be discussing advancing it to Stage 4, which would make it officially part of the language. All of the entrance criteria [seem to be met][criteria], it's clearly popular in the JavaScript community (basically any tutorial using Redux uses it), and it's already supported in [V8][v8], which means Chrome and Node both support the syntax. All that's left is for the committee to accept it. I expect this proposal to land in the language at this meeting.
