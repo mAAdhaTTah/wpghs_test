@@ -9,7 +9,9 @@ permalink: >
 published: true
 post_date: 2018-01-09 11:34:23
 ---
-#### Status: Seeking Comment
+#### Status: Validating
+
+_We're attempting to implement an API like this on top of React, instead of in a separate library._
 
 `brookjs` was originally designed to be backed with a Handlebars-based templating engine, providing a clean separation between what constitutes structure (HTML in the Handlebars template), interaction (JavaScript component declaration), & style (CSS files). Using Handlebars to back components allows them to be rendered by any backend, no JavaScript required. The display of the DOM is expressed as a Handlebars template, and behavior is mapped from the template to the component's configuration through Handlebars helpers.
 
