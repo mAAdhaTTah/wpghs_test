@@ -4,7 +4,7 @@ post_title: >
   Using TypeScript tagged unions for
   loading state in Redux
 author: James DiGioia
-post_excerpt: "Dealing with loading state is a core requirement of most apps you build. Let's see how we can handle this with TypeScript and Redux."
+post_excerpt: ""
 layout: post
 permalink: >
   https://jamesdigioia.com/using-typescript-tagged-unions-loading-state-redux/
