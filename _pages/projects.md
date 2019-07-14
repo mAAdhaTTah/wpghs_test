@@ -23,7 +23,7 @@ post_date: 2013-07-20 05:33:14
 *   [**#BYOTchat**][8] - *Founder, Archivist* - Weekly Twitter chat with educators discussing issues related to BYOT (Bring Your Own Technology).
 
  [1]: http://www.quenchnj.com/
- [2]: https://jamesdigioia.com/wp-gistpen/
+ [2]: https://github.com/intraxia/wp-gistpen/
  [3]: https://github.com/benbalter/wordpress-github-sync
  [4]: https://github.com/intraxia/jaxion
  [5]: https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate
