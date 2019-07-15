@@ -17,7 +17,7 @@ With the introduction of modules to JavaScript, bundlers are able to analyze wha
 
 [gistpen id="5890"]
 
-With this, your bundler can include just the code for `query`, `addClass`, and `append` and discard the rest of the library.
+With this, your bundler can include just the code for `query`, `addClass`, `append` and `on`, and discard the rest of the library.
 
 I've included a small API initially to get the idea out there, but I'm very interested in expanding it, so please [open an issue][new-issue] and suggest ideas! I'm very open to expanding the API and evolving the library along with pipeline operator best practices.
 
