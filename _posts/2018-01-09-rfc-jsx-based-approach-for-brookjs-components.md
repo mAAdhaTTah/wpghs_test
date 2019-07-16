@@ -9,7 +9,7 @@ permalink: >
 published: true
 post_date: 2018-01-09 11:34:23
 ---
-#### Status: Validating
+#### Status: Withdrawn
 
 _We're attempting to implement an API like this on top of React, instead of in a separate library._
 
