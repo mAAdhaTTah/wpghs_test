@@ -9,4 +9,4 @@ permalink: >
 published: true
 post_date: 2018-02-04 22:34:30
 ---
-“It should be noted that no ethically-trained software engineer would ever consent to write a _DestroyBaghdad_ procedure. Basic professional ethics would instead require him to write a _DestroyCity_ procedure, to which _Baghdad_ could be given as a parameter.”
+It should be noted that no ethically-trained software engineer would ever consent to write a _DestroyBaghdad_ procedure. Basic professional ethics would instead require him to write a _DestroyCity_ procedure, to which _Baghdad_ could be given as a parameter.
