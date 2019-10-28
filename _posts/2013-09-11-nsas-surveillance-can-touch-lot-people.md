@@ -9,8 +9,4 @@ permalink: >
 published: true
 post_date: 2013-09-11 09:02:11
 ---
-![The NSA's surveillance can touch a lot of people][1]
-
-via Jamelle Bouie.
-
- [1]: https://dl.dropboxusercontent.com/u/431880/Web%20Images/806098434.gif
+via Jamelle Bouie
