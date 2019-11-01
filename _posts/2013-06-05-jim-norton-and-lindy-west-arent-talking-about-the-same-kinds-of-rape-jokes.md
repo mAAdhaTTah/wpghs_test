@@ -2,17 +2,13 @@
 ID: 706
 post_title: 'Jim Norton and Lindy West Aren&#8217;t Talking About the Same Kinds of Rape Jokes'
 author: James DiGioia
-post_date: 2013-06-05 09:37:02
 post_excerpt: "Jim Norton and Lindy West have a surprisingly adult conversation about rape jokes and freedom of expression, but they mostly talk past each other; they're just not talking about the same thing."
 layout: post
 permalink: >
-  http://jamesdigioia.com/jim-norton-and-lindy-west-arent-talking-about-the-same-kinds-of-rape-jokes/
+  https://jamesdigioia.com/jim-norton-and-lindy-west-arent-talking-about-the-same-kinds-of-rape-jokes/
 published: true
-livefyre_version:
-  - "3"
+post_date: 2013-06-05 09:37:02
 ---
-[embed]https://www.youtube.com/watch?v=GtUb_E1qUHA[/embed]
-
 I think the debate here is fairly representative of debates generally between men and women: the two of them really aren't talking about the same thing.
 
 Jim Norton is arguing that nothing is sacred, everything should be open to ridicule, and that jokes about rape don't make people go out and rape. Lindy, on the flip side, is arguing that rape jokes are generally in poor taste and contribute to rape culture. The problem, I think, is they're not really talking about the same *kinds* of rape jokes.<!--more-->
