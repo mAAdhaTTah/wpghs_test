@@ -21,4 +21,4 @@ I'm not sure if Norton fails to grasp the difference because he's being willfull
 
 I'm not going to go rehash her entire blog post - she does a good job parsing the difference herself. It's just worth pointing out, though, how often people on two sides of a nuanced debate fail to grasp what the other side is trying to say.
 
- [1]: http://jezebel.com/5925186/how-to-make-a-rape-joke "How to Make a Rape Joke"
+ [1]: http://jezebel.com/5925186/how-to-make-a-rape-joke
