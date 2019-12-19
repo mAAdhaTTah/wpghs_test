@@ -4,7 +4,8 @@ post_title: 'I think not using snapshots makes the test-as-docu&#8230;'
 author: James DiGioia
 post_excerpt: ""
 layout: post
-permalink: https://jamesdigioia.com/5951-2/
+permalink: >
+  https://jamesdigioia.com/snapshot-testing-tests-as-documentation/
 published: true
 post_date: 2019-12-18 22:24:11
 ---
